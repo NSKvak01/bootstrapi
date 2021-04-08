@@ -68,5 +68,22 @@ h1 {
 }
 
 #car{
-    width:600px
+    width:600px;
+    margin-bottom: 500px;
+}
+
+.info{
+    font-size: 30px;
+    display:flex;
+    justify-content: center;
+    padding-left: 250px;
+}
+
+.sentence{
+    font-size: 30px;
+    padding:80px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color:white;
+    background-color: black;
 }
