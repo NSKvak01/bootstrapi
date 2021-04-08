@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
     <div class="api-section">
         <h1>
             Random Dog Generator
@@ -25,23 +25,54 @@
         </div>
     </div>
 
-    <div class="api-section">
+    <div class="api-section" id="weather-block">
         <h1>
             Weather App
         </h1>
-        <div class="api-content">
+        <div class="api-content" >
             <form>
                 <div class="mb-3">
                     <label for="weather" class="form-label"></label>
                     <input type="text" class="form-control" id="weather">
                 </div>
             </form>
-            <button id="weather-button" type="button" class="btn btn-primary">Weather</button>
-            <div id="temperature"></div>
-            <div id="wind"></div>
-            <div id="description"></div>
+            <button id="weather-button" type="button" class="btn btn-primary"> Check weather</button>
+            <div id='info'>
+                <div id="temperature"></div>
+                <div id="wind"></div>
+                <div id="description"></div>
+            </div>
         </div>
     </div>
+
+    <div class="api-section">
+        <h1>
+            Dad Jokes
+        </h1>
+        <div class="api-content">
+            <button id="joke-button" type="button" class="btn btn-primary">Random dad joke generator</button>
+            <div id="joke">
+            </div>
+        </div>
+    </div>
+    <div id="car">
+        <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel"> 
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="data:image/jpeg;base64,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" class="d-block w-100" alt="...">
+                </div>
+            </div>       
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
 
     <script src="main.js"></script>
 </body>

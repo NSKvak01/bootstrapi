@@ -1,3 +1,7 @@
+const carouselInner = document.querySelector('.carousel-inner')
+
+
+
 // Part 1
 
 const dogButton = document.querySelector('#dog-button')
@@ -9,6 +13,18 @@ dogButton.addEventListener('click', ()=>{
         .then((data) => data.json())
         .then ((response)=>{
             dogImage.src = response.message
+            
+            const item = document.createElement('div')
+            item.classList.add('carousel-item')
+            // item.innerText.add('active')
+            const picture = document.createElement('img')
+            picture.src = response.message
+            picture.classList.add('d-block')
+            picture.classList.add('w-100')
+            picture.alt='...'
+            carouselInner.appendChild(item)
+            item.appendChild(picture)
+            
         })
         .catch((error)=> console.log(error))
 })
@@ -34,30 +50,37 @@ weatherButton.addEventListener('click', ()=>{
             temperature.innerText = response.temperature
             wind.innerText = response.wind
             description.innerText = response.description
-            const body = document.querySelector('body')
+            const weatherBlock = document.querySelector('#weather-block')
             if (response.description ==='Light rain'){
-                body.style.backgroundImage = "url('images/62OPjF.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/62OPjF.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             } else if (response.description ==='Sunny'){
-                body.style.backgroundImage = "url('images/unnamed.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/unnamed.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             } else if (response.description ==='Clear'){
-                body.style.backgroundImage = "url('images/clear.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/clear.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             } else if (response.description ==='Partly cloudy'){
-                body.style.backgroundImage = "url('images/cloudy.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/cloudy.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             } else if (response.description ==='Patchy rain possible'){
-                body.style.backgroundImage = "url('images/patchy.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/patchy.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             } else if (response.description ==='Light snow'){
-                body.style.backgroundImage = "url('images/lightsnow.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/lightsnow.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             } else if (response.description ==='Moderate rain at times'){
-                body.style.backgroundImage = "url('images/moderaterain.jpeg')" 
-                body.style.backgroundSize = '100%'
+                weatherBlock.style.backgroundImage = "url('images/moderaterain.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
+            } else if (response.description ==='Heavy snow shower'){
+                weatherBlock.style.backgroundImage = "url('images/snow.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
+            } else if (response.description ==='Rain shower'){
+                weatherBlock.style.backgroundImage = "url('images/rainshower.jpeg')" 
+                weatherBlock.style.backgroundSize = '100%'
             }
         })
+        .catch((error)=> console.log(error))
 })
 
 document.addEventListener('keydown', (e)=>{
@@ -71,29 +94,57 @@ document.addEventListener('keydown', (e)=>{
                 temperature.innerText = response.temperature
                 wind.innerText = response.wind
                 description.innerText = response.description
-                const body = document.querySelector('body')
+                const weatherBlock = document.querySelector('weather-block')
                 if (response.description ==='Light rain'){
-                    body.style.backgroundImage = "url('images/62OPjF.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/62OPjF.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 } else if (response.description ==='Sunny'){
-                    body.style.backgroundImage = "url('images/unnamed.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/unnamed.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 } else if (response.description ==='Clear'){
-                    body.style.backgroundImage = "url('images/clear.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/clear.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 } else if (response.description ==='Partly cloudy'){
-                    body.style.backgroundImage = "url('images/cloudy.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/cloudy.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 } else if (response.description ==='Patchy rain possible'){
-                    body.style.backgroundImage = "url('images/patchy.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/patchy.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 } else if (response.description ==='Light snow'){
-                    body.style.backgroundImage = "url('images/lightsnow.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/lightsnow.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 } else if (response.description ==='Moderate rain at times'){
-                    body.style.backgroundImage = "url('images/moderaterain.jpeg')" 
-                    body.style.backgroundSize = '100%'
+                    weatherBlock.style.backgroundImage = "url('images/moderaterain.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
+                } else if (response.description ==='Heavy snow shower'){
+                    weatherBlock.style.backgroundImage = "url('images/snow.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
+                } else if (response.description ==='Rain shower'){
+                    weatherBlock.style.backgroundImage = "url('images/rainshower.jpeg')" 
+                    weatherBlock.style.backgroundSize = '100%'
                 }
             })
+            .catch((error)=> console.log(error))
     }
+    
 })
+
+// Part 3
+
+const jokeButton = document.querySelector('#joke-button')
+const joke = document.querySelector('#joke')
+const URL2 = 'https://icanhazdadjoke.com/'
+let headers = new Headers({
+    "Accept"       : "application/json",
+    "User-Agent"   : "Bootstrapi (https://github.com/NSKvak01/bootstrapi)"
+});
+
+jokeButton.addEventListener('click', ()=>{
+    fetch(URL2, {headers:headers})
+        .then((data)=>data.json())
+        .then((response)=>{
+            joke.innerText = response.joke
+        })
+        .catch((error)=> console.log(error))
+})
+
