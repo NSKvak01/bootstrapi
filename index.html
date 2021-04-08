@@ -15,20 +15,31 @@
     
     <div class="api-section">
         <h1>
-            Part 1: Random Dog Generator
+            Random Dog Generator
         </h1>
         <div class="api-content">
-            <button id="dog-button">Random dog picture generator</button>
-            <img id="dog-image" />
+            <button id="dog-button" type="button" class="btn btn-primary">Random dog picture generator</button>
+            <div>
+                <img id="dog-image" />
+            </div>
         </div>
     </div>
 
     <div class="api-section">
         <h1>
-            Part 2: Weather App
+            Weather App
         </h1>
         <div class="api-content">
-            [INSERT WEATHER APP HERE]
+            <form>
+                <div class="mb-3">
+                    <label for="weather" class="form-label"></label>
+                    <input type="text" class="form-control" id="weather">
+                </div>
+            </form>
+            <button id="weather-button" type="button" class="btn btn-primary">Weather</button>
+            <div id="temperature"></div>
+            <div id="wind"></div>
+            <div id="description"></div>
         </div>
     </div>
 

@@ -17,10 +17,15 @@ h1 {
     border: 1px solid #999;
     border-radius: 4px;
     margin: 24px 24px 0;
+    background-color: white;
 }
 
 .api-content {
     font-weight: bold;
     font-style: italic;
     color: #999;
+}
+
+#weather{
+    border:1px solid grey
 }
